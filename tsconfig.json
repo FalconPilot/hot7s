@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "outDir": "dist",
+    "strict": true,
+    "target": "ES5",
+    "baseUrl": ".",
+    "paths": {
+      "$constants": ["./src/constants/index"],
+      "$types": ["./src/types/index"],
+      "$utils": ["./src/utils/index"]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# OS X artifacts
+.DS_Store
+
+# Private files
+.env
+
+# Build-only relevant files
+dist/
+node_modules/
