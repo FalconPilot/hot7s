@@ -1,15 +1,22 @@
 {
   "compilerOptions": {
+    "declaration": false,
     "esModuleInterop": true,
     "module": "commonjs",
+    "moduleResolution": "node",
     "outDir": "dist",
     "strict": true,
     "target": "ES5",
     "baseUrl": ".",
     "paths": {
-      "$constants": ["./src/constants/index"],
-      "$types": ["./src/types/index"],
-      "$utils": ["./src/utils/index"]
+      "$game/constants": ["./game/constants/index"],
+      "$game/index": ["./game/index"],
+      "$game/types": ["./game/types/index"],
+      "$game/utils": ["./game/utils/index"]
     }
-  }
+  },
+  "include": [
+    "game/**/*",
+    "editor/**/*"
+  ]
 }

@@ -1,10 +1,9 @@
+import type { App } from 'electron'
 import path from 'path'
 import ConfigParser from 'configparser'
 
-import { defaultOptions } from '$constants'
-import { AppOptions } from '$types'
-
-const configPath: string = path.resolve(__dirname, '..', '..', 'static', 'options.conf')
+import { defaultOptions } from '$game/constants'
+import { AppOptions } from '$game/types'
 
 const parseConfigNumber = (src: string | undefined): number | null => {
   const n: number = parseInt(src ?? 'NaN', 10)
@@ -19,21 +18,26 @@ const parseField = (namespace: keyof AppOptions) => <ExpectedValue>(field: strin
 // Pre-configured namespaced option getters
 const parseResolutionOption = parseField('resolution')
 
+// Options path
+export const getOptionsPath = (app: App): string => path.join(
+  app.getPath('userData'),
+  'options.conf',
+)
+
 // Load options from config file
-export const loadConf = (): AppOptions => {
+export const loadConf = (app: App): AppOptions => {
   const config: ConfigParser = new ConfigParser()
   try {
-    config.read(configPath)
+    config.read(path.resolve(getOptionsPath(app)))
     return parseConf(config)
   } catch (err) {
     console.warn(err)
     return defaultOptions
   }
-
 }
 
 // Write config file from options
-export const writeConf = (options: AppOptions): void => {
+export const writeConf = (app: App) => (options: AppOptions): void => {
   const config: ConfigParser = new ConfigParser()
   Object.entries(options).forEach(([sectionKey, section]: [string, object]): void => {
     config.addSection(sectionKey)
@@ -41,7 +45,7 @@ export const writeConf = (options: AppOptions): void => {
       config.set(sectionKey, optionKey, optionValue)
     })
   })
-  config.write(configPath)
+  config.write(getOptionsPath(app))
 }
 
 // Parse config class to options

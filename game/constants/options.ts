@@ -1,4 +1,4 @@
-import { AppOptions } from '$types'
+import { AppOptions } from 'game/types'
 
 export const defaultOptions: AppOptions = {
   resolution: {
