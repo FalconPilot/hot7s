@@ -19,10 +19,8 @@ const parseField = (namespace: keyof AppOptions) => <ExpectedValue>(field: strin
 const parseResolutionOption = parseField('resolution')
 
 // Options path
-export const getOptionsPath = (app: App): string => path.join(
-  app.getPath('userData'),
-  'options.conf',
-)
+export const getOptionsPath = (app: App): string =>
+  path.join(app.getPath('userData'), 'options.conf')
 
 // Load options from config file
 export const loadConf = (app: App): AppOptions => {

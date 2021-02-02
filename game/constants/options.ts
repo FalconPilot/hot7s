@@ -2,7 +2,7 @@ import { AppOptions } from 'game/types'
 
 export const defaultOptions: AppOptions = {
   resolution: {
-    windowHeight: 800,
-    windowWidth: 600,
+    windowHeight: 600,
+    windowWidth: 800,
   },
 }

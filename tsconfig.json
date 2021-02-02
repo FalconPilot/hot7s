@@ -2,6 +2,7 @@
   "compilerOptions": {
     "declaration": false,
     "esModuleInterop": true,
+    "jsx": "react",
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "dist",
@@ -11,6 +12,7 @@
     "paths": {
       "$game/constants": ["./game/constants/index"],
       "$game/index": ["./game/index"],
+      "$game/ipc": ["./game/ipc/index"],
       "$game/types": ["./game/types/index"],
       "$game/utils": ["./game/utils/index"]
     }

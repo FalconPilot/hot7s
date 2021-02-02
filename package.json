@@ -6,16 +6,23 @@
   "repository": "https://github.com/FalconPilot/hot7s",
   "scripts": {
     "clean": "rm -rf dist/",
-    "build": "yarn run clean && tsc --project tsconfig.json && yarn run paths",
+    "build": "yarn run clean && yarn run build:ts",
+    "build:static": "cp -r game/static dist/game/static",
+    "build:ts": "tsc --project tsconfig.json && yarn run paths && yarn run build:static",
     "paths": "tscpaths -p tsconfig.json -s ./game -o ./dist/game && tscpaths -p tsconfig.json -s ./editor -o ./dist/editor",
-    "pretty": "prettier --write ./**/*.ts",
+    "pretty": "prettier --write ./game/**/*.ts && prettier --write ./editor/**/*.ts",
     "start": "electron dist/game/index.js",
     "start:editor": "electron dist/editor/index.js"
   },
   "dependencies": {
-    "configparser": "^0.3.8"
+    "@figouzes/falcon-css": "^0.3.12",
+    "configparser": "^0.3.8",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "electron": "^11.2.1",
     "prettier": "^2.2.1",
     "tscpaths": "^0.0.9",
