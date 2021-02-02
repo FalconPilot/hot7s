@@ -1,5 +1,6 @@
 import { app, BrowserWindow } from 'electron'
 
+import { handleResponses } from '$game/ipc'
 import { loadConf, loadFrame, writeConf } from '$game/utils'
 import { AppOptions } from '$game/types'
 
@@ -24,5 +25,9 @@ app.whenReady().then(() => {
     },
   })
 
+  // Listen to all handlers
+  handleResponses()
+
+  // Load mainframe
   loadFrame(__dirname)('main')(mainWindow)
 })

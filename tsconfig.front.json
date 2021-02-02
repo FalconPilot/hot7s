@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": false,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "module": "es6",
+    "moduleResolution": "node",
+    "strict": true,
+    "rootDir": "front",
+    "target": "ES5",
+    "lib": [
+      "dom",
+      "es2015",
+      "es5",
+      "es6"
+    ]
+  },
+  "include": [
+    "front/**/*"
+  ]
+}

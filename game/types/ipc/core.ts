@@ -28,6 +28,9 @@ export type IpcAction<Message extends IpcMessages, Payload = null, Response = nu
 
 export type IpcActions = IpcSystemAction
 
+export type IpcResponseHandler = () => void
+
+// IPC Error class
 export class IpcError<ExpectedSuccess> extends Error {
   public ipcResponse: IpcResponse<ExpectedSuccess>
 

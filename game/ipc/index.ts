@@ -1,5 +1,5 @@
-import * as System from './System'
+import responseHandlers from './back'
 
-export default {
-  System,
-}
+export * as front from './front'
+
+export const handleResponses = () => responseHandlers.forEach(handler => handler())
