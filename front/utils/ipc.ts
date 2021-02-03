@@ -1,10 +1,7 @@
-import { IpcRenderer } from 'electron'
-
-import { CrashGame, IpcActions, IpcError, IpcResponse, IpcSystemMessages } from '$game/types'
+import { IpcActions, IpcError, IpcResponse } from '$game/types'
 import { isIpcCrash, isIpcSuccess, isIpcWarning } from '$game/utils/types'
-import { GameWindow } from '$front/types'
 
-declare var window: GameWindow
+const { ipcRenderer } = require('electron')
 
 export const sendMessage = <Message extends IpcActions>(
   msg: Message[0],
@@ -13,8 +10,7 @@ export const sendMessage = <Message extends IpcActions>(
 ) => (
   responseHandler: (v: Message[2]) => void
 ): Promise<void> => new Promise((resolve, reject) => {
-  const ipcRenderer: IpcRenderer = window.ipcRenderer
-  ipcRenderer.on(msg, (event) => {
+  ipcRenderer.on(msg, (event: unknown) => {
     // Mandatory cast :(
       const response: IpcResponse<Message[2]> = (event as unknown) as IpcResponse<Message[2]>
 
@@ -36,5 +32,3 @@ export const sendMessage = <Message extends IpcActions>(
 
   ipcRenderer.send(msg, payload)
 })
-
-export const crashGame = sendMessage<CrashGame>(IpcSystemMessages.GAME_CRASH)

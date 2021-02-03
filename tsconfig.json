@@ -12,8 +12,9 @@
       "$game/types": ["./game/types/index"],
       "$game/utils": ["./game/utils/index"],
       "$game/utils/*": ["./game/utils/*"],
-      "$front/utils": ["./front/utils/index"],
-      "$front/types": ["./front/types/index"]
+      "$front/ipc": ["./front/ipc/index"],
+      "$front/types": ["./front/types/index"],
+      "$front/utils": ["./front/utils/index"]
     }
   },
   "include": [

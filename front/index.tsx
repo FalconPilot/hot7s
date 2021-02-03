@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
-import { crashGame } from '$front/utils'
+import { crashGame } from '$front/ipc'
 
 console.log('Herro :3')
 

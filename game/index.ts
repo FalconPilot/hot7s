@@ -22,8 +22,7 @@ app.whenReady().then(() => {
     height: options.resolution.windowHeight,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: true,
-      preload: path.resolve(__dirname, 'preload.js'),
+      contextIsolation: false,
     },
   })
 
