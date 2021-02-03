@@ -1,3 +1,4 @@
+import path from 'path'
 import { app, BrowserWindow } from 'electron'
 
 import { handleResponses } from '$game/ipc'
@@ -22,6 +23,7 @@ app.whenReady().then(() => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true,
+      preload: path.resolve(__dirname, 'preload.js'),
     },
   })
 

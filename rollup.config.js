@@ -1,4 +1,5 @@
 import typescript from '@rollup/plugin-typescript'
+import commonjs from '@rollup/plugin-commonjs'
 import injectProcessEnv from 'rollup-plugin-inject-process-env'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 
@@ -9,10 +10,13 @@ export default {
     format: "iife",
   },
   plugins: [
+    nodeResolve(),
+    commonjs({
+      include: /node_modules/,
+    }),
     typescript({ tsconfig: './tsconfig.front.json' }),
     injectProcessEnv({
       NODE_ENV: 'production',
     }),
-    nodeResolve(),
   ],
 }

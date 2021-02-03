@@ -2,21 +2,23 @@
   "compilerOptions": {
     "declaration": false,
     "esModuleInterop": true,
-    "module": "commonjs",
+    "jsx": "react",
     "strict": true,
-    "target": "ES5",
-    "outDir": "dist",
     "baseUrl": ".",
     "paths": {
       "$game/constants": ["./game/constants/index"],
       "$game/index": ["./game/index"],
       "$game/ipc": ["./game/ipc/index"],
       "$game/types": ["./game/types/index"],
-      "$game/utils": ["./game/utils/index"]
+      "$game/utils": ["./game/utils/index"],
+      "$game/utils/*": ["./game/utils/*"],
+      "$front/utils": ["./front/utils/index"],
+      "$front/types": ["./front/types/index"]
     }
   },
   "include": [
     "game/**/*",
-    "editor/**/*"
+    "editor/**/*",
+    "front/**/*"
   ]
 }

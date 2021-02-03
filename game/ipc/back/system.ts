@@ -1,12 +1,14 @@
-import * as handlers from '../handlers'
-import { IpcResponseHandler } from '$game/types'
+import { CrashGame, IpcResponseHandler, IpcSystemMessages } from '$game/types'
+import { handleMessage } from '$game/utils'
+
+const crashGame = handleMessage<CrashGame>(IpcSystemMessages.GAME_CRASH)((reason: string) => {
+  console.error(reason)
+  process.crash()
+  return null
+})
 
 const systemResponseHandlers: IpcResponseHandler[] = [
-  handlers.system.crashGame.reply((reason: string) => {
-    console.error(reason)
-    process.crash()
-    return null
-  })
+  crashGame,
 ]
 
 export default systemResponseHandlers

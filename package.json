@@ -9,8 +9,8 @@
     "build": "yarn run clean && yarn run build:ts",
     "build:static": "cp -r game/static dist/game/static",
     "build:front": "rollup -c",
-    "build:ts": "tsc --project tsconfig.json && yarn run paths && yarn run build:static && yarn run build:front",
-    "paths": "tscpaths -p tsconfig.json -s ./game -o ./dist/game && tscpaths -p tsconfig.json -s ./editor -o ./dist/editor",
+    "build:ts": "tsc --project tsconfig.back.json && yarn run paths && yarn run build:static && yarn run build:front",
+    "paths": "tscpaths -p tsconfig.back.json -s ./game -o ./dist/game && tscpaths -p tsconfig.back.json -s ./editor -o ./dist/editor",
     "pretty": "prettier --write ./game/**/*.ts && prettier --write ./editor/**/*.ts",
     "start": "electron dist/game/index.js",
     "start:editor": "electron dist/editor/index.js"
@@ -21,6 +21,7 @@
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.1.0",
     "@rollup/plugin-node-resolve": "^11.1.1",
     "@rollup/plugin-typescript": "^8.1.1",
     "@types/react": "^17.0.0",
@@ -29,6 +30,7 @@
     "prettier": "^2.2.1",
     "rollup": "^2.38.3",
     "rollup-plugin-inject-process-env": "^1.3.1",
+    "rollup-plugin-node-polyfills": "^0.2.1",
     "tscpaths": "^0.0.9",
     "tslib": "^2.1.0",
     "typescript": "^4.1.3"
