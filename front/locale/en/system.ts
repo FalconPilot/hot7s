@@ -6,6 +6,7 @@ const systemLocale: SystemLocale = {
   gameTitle,
   save: 'Save',
   load: 'Load',
+  options: 'Options',
   newGame: 'New game',
   quitToMenu: 'Return to title',
   quitGame: 'Quit to desktop',

@@ -3,6 +3,7 @@ export interface SystemLocale {
   newGame: string
   save: string
   load: string
+  options: string
   quitToMenu: string
   quitGame: string
 }

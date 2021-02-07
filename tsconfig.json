@@ -13,6 +13,7 @@
       "$game/types": ["./game/types"],
       "$game/utils": ["./game/utils"],
       "$game/utils/*": ["./game/utils/*"],
+      "$front/actions": ["./front/actions"],
       "$front/components": ["./front/components"],
       "$front/core": ["./front/core"],
       "$front/ipc": ["./front/ipc"],

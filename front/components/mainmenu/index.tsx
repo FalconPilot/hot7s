@@ -4,6 +4,7 @@ import { systemImage, text } from '$front/utils'
 
 import { SplashScreen } from './splashscreen'
 import { splashScreenFadeDelay } from './styled'
+import { MenuChoices } from './menuchoices'
 
 const splashScreenImages = [
   systemImage('falconpilot.svg'),
@@ -17,6 +18,7 @@ export const MainMenu: React.FunctionComponent = () => {
     return (
       <div>
         {text('en').system.gameTitle}
+        <MenuChoices />
       </div>
     )
   }
@@ -27,7 +29,7 @@ export const MainMenu: React.FunctionComponent = () => {
       window.setTimeout(() => {
         setSplash([splashIndex + 1, false])
       }, splashScreenFadeDelay + 100)
-    }, 3000)
+    }, 2000)
   }
 
   return (

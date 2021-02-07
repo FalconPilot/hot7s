@@ -27,10 +27,5 @@ export const globalStyles: SerializedStyles = css`
     ])
   )}
 
-  ${interpolateProperty('#rootNode')(
-    cssProperties([
-      width(vw(100)),
-      height(vh(100)),
-    ])
-  )}
+  ${interpolateProperty('#rootNode')(cssProperties([width(vw(100)), height(vh(100))]))}
 `
