@@ -6,6 +6,7 @@
   "repository": "https://github.com/FalconPilot/hot7s",
   "scripts": {
     "clean": "rm -rf dist/",
+    "all": "yarn run build && yarn start",
     "build": "yarn run clean && yarn run build:ts",
     "build:static": "cp -r game/static dist/game/static",
     "build:ts": "tsc --project tsconfig.json && yarn run paths && yarn run build:static",
