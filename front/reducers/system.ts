@@ -42,7 +42,8 @@ export default reducer<SystemState, SystemAction>(
       return addOverlay(action.payload)(state)
     case SystemActionKey.REMOVE_OVERLAY:
       return removeOverlay(state)
-    case SystemActionKey.SET_OPTIONS:
+    case SystemActionKey.SAVE_OPTIONS:
+    case SystemActionKey.UPDATE_OPTIONS:
       return setOptions(action.payload)(state)
   }
   return checkExhaustive(action)

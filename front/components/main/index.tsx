@@ -17,11 +17,8 @@ const splashScreenImages = [
 ] as const
 
 export const Main: React.FunctionComponent = () => {
-  console.log('RE-RENDER')
   const [[splashIndex, isFadeout], setSplash] = React.useState<[number, boolean]>([0, false])
   const { gameView } = useSelector(systemSelector)
-
-  console.log(splashIndex, isFadeout)
 
   // All splashscreens have been displayed
   // Display correct GameView

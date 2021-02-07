@@ -1,4 +1,4 @@
-import { CrashGame, IpcResponseHandler, IpcSystemMessages, SetOptions } from '$game/types'
+import { CrashGame, IpcResponseHandler, IpcSystemMessages, SaveOptions } from '$game/types'
 import { handleMessage, writeConf } from '$game/utils'
 
 const crashGame = handleMessage<CrashGame>(IpcSystemMessages.GAME_CRASH)(() => reason => {
@@ -7,7 +7,7 @@ const crashGame = handleMessage<CrashGame>(IpcSystemMessages.GAME_CRASH)(() => r
   return null
 })
 
-const setOptions = handleMessage<SetOptions>(IpcSystemMessages.SET_OPTIONS)(windows => options => {
+const setOptions = handleMessage<SaveOptions>(IpcSystemMessages.SAVE_OPTIONS)(windows => options => {
   if (windows.main) {
     windows.main.setSize(options.resolution.windowWidth, options.resolution.windowHeight)
   }

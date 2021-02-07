@@ -5,6 +5,6 @@ export const loadFrame = (baseDirPath: string) => (frameName: string) => (
   window: BrowserWindow
 ): void => {
   const frame: string = `${frameName}.html`
-  console.log(`Loading frame "${frame}" ...`)
+  console.log(`[HOT7S] Loading frame "${frame}"...`)
   window.loadFile(path.resolve(baseDirPath, 'static', 'frames', frame))
 }

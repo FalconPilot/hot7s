@@ -8,4 +8,6 @@ export interface SystemLocale {
   quitGame: string
   confirm: string
   resolution: string
+  noneSelected: string
+  language: string
 }

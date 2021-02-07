@@ -12,6 +12,8 @@ const systemLocale: SystemLocale = {
   quitGame: 'Quit to desktop',
   confirm: 'Confirm',
   resolution: 'Resolution',
+  noneSelected: 'None selected',
+  language: 'Language',
 }
 
 export default systemLocale

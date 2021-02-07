@@ -14,5 +14,6 @@ export const systemActions: SystemActions = {
   removeOverlay: systemActionCreator(SystemActionKey.REMOVE_OVERLAY),
 
   // Options
-  setOptions: systemActionWithPayloadCreator(SystemActionKey.SET_OPTIONS),
+  saveOptions: systemActionWithPayloadCreator(SystemActionKey.SAVE_OPTIONS),
+  updateOptions: systemActionWithPayloadCreator(SystemActionKey.UPDATE_OPTIONS),
 }

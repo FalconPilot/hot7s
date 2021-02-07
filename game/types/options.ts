@@ -1,4 +1,5 @@
 import locales from '$front/locale'
+
 export interface ResolutionOptions {
   windowHeight: number
   windowWidth: number

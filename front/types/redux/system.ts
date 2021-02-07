@@ -10,10 +10,11 @@ export enum GameOverlay {
 }
 
 export enum SystemActionKey {
-  CHANGE_GAMEVIEW = 'CHANGE_GAMEVIEW',
-  ADD_OVERLAY = 'ADD_OVERLAY',
-  REMOVE_OVERLAY = 'REMOVE_OVERLAY',
-  SET_OPTIONS = 'SET_OPTIONS',
+  CHANGE_GAMEVIEW = 'SYSTEM/CHANGE_GAMEVIEW',
+  ADD_OVERLAY = 'SYSTEM/ADD_OVERLAY',
+  REMOVE_OVERLAY = 'SYSTEM/REMOVE_OVERLAY',
+  SAVE_OPTIONS = 'SYSTEM/SAVE_OPTIONS',
+  UPDATE_OPTIONS = 'SYSTEM/UPDATE_OPTIONS',
 }
 
 export type SystemActionCreator<AK extends SystemActionKey> = ActionCreator<AK>
@@ -26,7 +27,8 @@ export interface SystemActions {
   changeGameView: SystemActionCreatorWithPayload<SystemActionKey.CHANGE_GAMEVIEW, GameView>
   addOverlay: SystemActionCreatorWithPayload<SystemActionKey.ADD_OVERLAY, GameOverlay>
   removeOverlay: SystemActionCreator<SystemActionKey.REMOVE_OVERLAY>
-  setOptions: SystemActionCreatorWithPayload<SystemActionKey.SET_OPTIONS, AppOptions>
+  saveOptions: SystemActionCreatorWithPayload<SystemActionKey.SAVE_OPTIONS, AppOptions>
+  updateOptions: SystemActionCreatorWithPayload<SystemActionKey.UPDATE_OPTIONS, AppOptions>
 }
 
 export type SystemAction = ReturnType<ValueOf<SystemActions>>

@@ -12,6 +12,8 @@ const systemLocale: SystemLocale = {
   quitGame: 'Quitter le jeu',
   confirm: 'Confirmer',
   resolution: 'Résolution',
+  noneSelected: 'Aucun(e) sélectionné(e)',
+  language: 'Langue',
 }
 
 export default systemLocale

@@ -8,8 +8,6 @@
     "baseUrl": ".",
     "paths": {
       "$game/constants": ["./game/constants"],
-      "$game/globals": ["./game/globals"],
-      "$game/index": ["./game"],
       "$game/ipc": ["./game/ipc"],
       "$game/types": ["./game/types"],
       "$game/utils": ["./game/utils"],

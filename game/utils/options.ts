@@ -25,8 +25,7 @@ const parseResolutionOption = parseField('resolution')
 const parseGameOption = parseField('game')
 
 // Options path
-export const getOptionsPath = (): string =>
-  path.join(app.getPath('userData'), 'options.conf')
+export const getOptionsPath = (): string => path.join(app.getPath('userData'), 'options.conf')
 
 // Load options from config file
 export const loadConf = (): AppOptions => {
