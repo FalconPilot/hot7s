@@ -1,6 +1,6 @@
 import path from 'path'
 import ConfigParser from 'configparser'
-import { app } from 'electron'
+import { App } from 'electron'
 
 import locales from '$front/locale'
 import { defaultOptions } from '$game/constants'
@@ -25,13 +25,13 @@ const parseResolutionOption = parseField('resolution')
 const parseGameOption = parseField('game')
 
 // Options path
-export const getOptionsPath = (): string => path.join(app.getPath('userData'), 'options.conf')
+export const getOptionsPath = (app: App): string => path.join(app.getPath('userData'), 'options.conf')
 
 // Load options from config file
-export const loadConf = (): AppOptions => {
+export const loadConf = (app: App): AppOptions => {
   const config: ConfigParser = new ConfigParser()
   try {
-    config.read(path.resolve(getOptionsPath()))
+    config.read(path.resolve(getOptionsPath(app)))
     return parseConf(config)
   } catch (err) {
     console.warn(err)
@@ -40,7 +40,7 @@ export const loadConf = (): AppOptions => {
 }
 
 // Write config file from options
-export const writeConf = (options: AppOptions): void => {
+export const writeConf = (app: App) => (options: AppOptions): void => {
   const config: ConfigParser = new ConfigParser()
   Object.entries(options).forEach(([sectionKey, section]: [string, object]): void => {
     config.addSection(sectionKey)
@@ -48,7 +48,7 @@ export const writeConf = (options: AppOptions): void => {
       config.set(sectionKey, optionKey, optionValue)
     })
   })
-  config.write(getOptionsPath())
+  config.write(getOptionsPath(app))
 }
 
 // Parse config class to options

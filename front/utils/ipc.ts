@@ -7,9 +7,9 @@ export const sendMessage = <Message extends IpcActions>(msg: Message[0]) => (
   payload: Message[1]
 ) => (responseHandler: (v: Message[2]) => void): Promise<void> =>
   new Promise((resolve, reject) => {
-    ipcRenderer.on(msg, (event: unknown) => {
+    ipcRenderer.on(msg, (_: unknown, arg: unknown) => {
       // Mandatory cast :(
-      const response: IpcResponse<Message[2]> = (event as unknown) as IpcResponse<Message[2]>
+      const response: IpcResponse<Message[2]> = (arg as unknown) as IpcResponse<Message[2]>
 
       if (isIpcSuccess<Message[2]>(response)) {
         return resolve(responseHandler(response[1]))

@@ -24,12 +24,16 @@ export const MenuChoices: React.FunctionComponent = () => {
     dispatch(actions.system.addOverlay(GameOverlay.Options))
   }, [dispatch])
 
+  const quit = React.useCallback((): void => {
+    dispatch(actions.system.quitGame())
+  }, [dispatch])
+
   return (
     <ul>
       <MenuChoice>{text(options.game.language).system.newGame}</MenuChoice>
       <MenuChoice>{text(options.game.language).system.load}</MenuChoice>
       <MenuChoice onClick={openOptions}>{text(options.game.language).system.options}</MenuChoice>
-      <MenuChoice>{text(options.game.language).system.quitGame}</MenuChoice>
+      <MenuChoice onClick={quit}>{text(options.game.language).system.quitGame}</MenuChoice>
     </ul>
   )
 }

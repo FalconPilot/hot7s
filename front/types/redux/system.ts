@@ -15,6 +15,7 @@ export enum SystemActionKey {
   REMOVE_OVERLAY = 'SYSTEM/REMOVE_OVERLAY',
   SAVE_OPTIONS = 'SYSTEM/SAVE_OPTIONS',
   UPDATE_OPTIONS = 'SYSTEM/UPDATE_OPTIONS',
+  GAME_QUIT = 'SYSTEM/GAME_QUIT',
 }
 
 export type SystemActionCreator<AK extends SystemActionKey> = ActionCreator<AK>
@@ -29,6 +30,7 @@ export interface SystemActions {
   removeOverlay: SystemActionCreator<SystemActionKey.REMOVE_OVERLAY>
   saveOptions: SystemActionCreatorWithPayload<SystemActionKey.SAVE_OPTIONS, AppOptions>
   updateOptions: SystemActionCreatorWithPayload<SystemActionKey.UPDATE_OPTIONS, AppOptions>
+  quitGame: SystemActionCreator<SystemActionKey.GAME_QUIT>
 }
 
 export type SystemAction = ReturnType<ValueOf<SystemActions>>

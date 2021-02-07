@@ -1,9 +1,11 @@
+import { remote } from 'electron'
+
 import { GameOverlay, GameView, SystemAction, SystemActionKey, SystemState } from '$front/types'
 import { isSystemAction, reducer } from '$front/utils'
 import { AppOptions } from '$game/types'
-import { checkExhaustive, loadConf } from '$game/utils'
+import { checkExhaustive } from '$game/utils'
 
-const options: AppOptions = loadConf()
+const options: AppOptions = remote.getGlobal('options')
 
 const initialState: SystemState = {
   gameView: GameView.MainMenu,
@@ -45,6 +47,10 @@ export default reducer<SystemState, SystemAction>(
     case SystemActionKey.SAVE_OPTIONS:
     case SystemActionKey.UPDATE_OPTIONS:
       return setOptions(action.payload)(state)
+
+    // NoOps
+    case SystemActionKey.GAME_QUIT:
+      return state
   }
   return checkExhaustive(action)
 })

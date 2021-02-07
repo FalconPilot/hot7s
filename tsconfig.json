@@ -19,6 +19,7 @@
       "$front/ipc": ["./front/ipc"],
       "$front/locale": ["./front/locale"],
       "$front/reducers": ["./front/reducers"],
+      "$front/sagas": ["./front/sagas"],
       "$front/theme": ["./front/theme"],
       "$front/types": ["./front/types"],
       "$front/utils": ["./front/utils"]

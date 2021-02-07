@@ -1,6 +1,10 @@
+import { App } from 'electron'
+
 import { GameWindows } from '$game/types'
 
-import responseHandlers from './back'
+import system from './system'
 
-export const handleResponses = (windows: GameWindows) =>
-  responseHandlers.forEach((handler) => handler(windows))
+export const handleResponses = (app: App, windows: GameWindows) =>
+  [
+    ...system,
+  ].forEach((handler) => handler(app, windows))

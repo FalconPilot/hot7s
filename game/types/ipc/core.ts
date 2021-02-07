@@ -1,6 +1,7 @@
-import { GameWindows } from '../core'
+import { App } from 'electron'
 
 import { IpcSystemAction, IpcSystemMessages } from './system'
+import { GameWindows } from '../core'
 
 export interface IpcErrorPayload {
   message: string
@@ -30,7 +31,7 @@ export type IpcAction<Message extends IpcMessages, Payload = null, Response = nu
 
 export type IpcActions = IpcSystemAction
 
-export type IpcResponseHandler = (windows: GameWindows) => void
+export type IpcResponseHandler = (app: App, windows: GameWindows) => void
 
 // IPC Error class
 export class IpcError<ExpectedSuccess> extends Error {

@@ -2,6 +2,9 @@ import { app, BrowserWindow } from 'electron'
 
 import { handleResponses } from '$game/ipc'
 import { loadConf, loadFrame, writeConf } from '$game/utils'
+import { GameGlobals } from '$game/types'
+
+declare const global: GameGlobals
 
 export const init = (): void => {
   // On app closed hook
@@ -13,22 +16,24 @@ export const init = (): void => {
 
   // App ready hook
   app.whenReady().then(() => {
-    const options = loadConf()
-
-    writeConf(options)
+    const options = loadConf(app)
+    global.options = options
+    writeConf(app)(options)
 
     const mainWindow: BrowserWindow = new BrowserWindow({
       width: options.resolution.windowWidth,
       height: options.resolution.windowHeight,
-      frame: false,
+      frame: true,
+      resizable: false,
       webPreferences: {
         nodeIntegration: true,
         contextIsolation: false,
+        enableRemoteModule: true,
       },
     })
 
     // Listen to all handlers
-    handleResponses({
+    handleResponses(app, {
       main: mainWindow,
       debug: null,
     })
