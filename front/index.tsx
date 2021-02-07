@@ -1,9 +1,8 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
-import { crashGame } from '$front/ipc'
-
-console.log('Herro :3')
+import { Main } from './components'
+import { Providers } from './core'
 
 const rootNode: HTMLElement | null = document.getElementById('rootNode')
 
@@ -11,8 +10,10 @@ if (rootNode == null) {
   throw new Error('Error : No root node found')
 }
 
-ReactDOM.render(<div>Coucou :3</div>, rootNode)
+const Game: React.FunctionComponent = () => (
+  <Providers>
+    <Main />
+  </Providers>
+)
 
-window.setTimeout(() => {
-  crashGame('Too bad :(')
-}, 5000)
+ReactDOM.render(<Game />, rootNode)

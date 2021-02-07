@@ -5,4 +5,7 @@ export const defaultOptions: AppOptions = {
     windowHeight: 600,
     windowWidth: 800,
   },
+  game: {
+    language: 'en',
+  },
 }

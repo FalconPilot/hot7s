@@ -2,13 +2,18 @@ import type { App } from 'electron'
 import path from 'path'
 import ConfigParser from 'configparser'
 
+import locales from '$front/locale'
 import { defaultOptions } from '$game/constants'
 import { AppOptions } from '$game/types'
+import { isLocaleKey } from '$front/utils'
 
 const parseConfigNumber = (src: string | undefined): number | null => {
   const n: number = parseInt(src ?? 'NaN', 10)
   return isNaN(n) ? null : n
 }
+
+const parseLocaleKey = (src: string | undefined): keyof typeof locales | null =>
+  src && isLocaleKey(src) ? src : null
 
 // Parse a single config field
 const parseField = (namespace: keyof AppOptions) => <ExpectedValue>(field: string) => (
@@ -17,6 +22,7 @@ const parseField = (namespace: keyof AppOptions) => <ExpectedValue>(field: strin
 
 // Pre-configured namespaced option getters
 const parseResolutionOption = parseField('resolution')
+const parseGameOption = parseField('game')
 
 // Options path
 export const getOptionsPath = (app: App): string =>
@@ -55,5 +61,10 @@ export const parseConf = (config: ConfigParser): AppOptions => ({
     windowWidth:
       parseResolutionOption<number>('windowWidth')(parseConfigNumber)(config) ??
       defaultOptions.resolution.windowWidth,
+  },
+  game: {
+    language:
+      parseGameOption<keyof typeof locales>('language')(parseLocaleKey)(config) ??
+      defaultOptions.game.language,
   },
 })

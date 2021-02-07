@@ -6,6 +6,13 @@
   </head>
   <body>
     <div id="rootNode"></div>
-    <script src="../../../front.js"></script>
+    <script>
+      try {
+        require("../../../front/index.js")
+      } catch (err) {
+        console.error(err)
+        alert("An absolutely unexpected error has occured :( You can only quit the game right now... Sorry !")
+      }
+    </script>
   </body>
 </html>

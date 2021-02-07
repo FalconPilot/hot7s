@@ -3,18 +3,24 @@
     "declaration": false,
     "esModuleInterop": true,
     "jsx": "react",
+    "outDir": "dist",
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "$game/constants": ["./game/constants/index"],
-      "$game/index": ["./game/index"],
-      "$game/ipc": ["./game/ipc/index"],
-      "$game/types": ["./game/types/index"],
-      "$game/utils": ["./game/utils/index"],
+      "$game/constants": ["./game/constants"],
+      "$game/index": ["./game"],
+      "$game/ipc": ["./game/ipc"],
+      "$game/types": ["./game/types"],
+      "$game/utils": ["./game/utils"],
       "$game/utils/*": ["./game/utils/*"],
-      "$front/ipc": ["./front/ipc/index"],
-      "$front/types": ["./front/types/index"],
-      "$front/utils": ["./front/utils/index"]
+      "$front/components": ["./front/components"],
+      "$front/core": ["./front/core"],
+      "$front/ipc": ["./front/ipc"],
+      "$front/locale": ["./front/locale"],
+      "$front/reducers": ["./front/reducers"],
+      "$front/theme": ["./front/theme"],
+      "$front/types": ["./front/types"],
+      "$front/utils": ["./front/utils"]
     }
   },
   "include": [

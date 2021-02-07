@@ -1,5 +1,5 @@
-import { IpcRenderer } from 'electron'
+import locales from '$front/locale'
 
 export interface GameWindow extends Window {
-  ipcRenderer: IpcRenderer
+  locale: keyof typeof locales
 }

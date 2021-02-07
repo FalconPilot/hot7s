@@ -1,0 +1,14 @@
+import { SystemLocale } from '$front/types'
+
+import { gameTitle } from '../common'
+
+const systemLocale: SystemLocale = {
+  gameTitle,
+  save: 'Sauvegarder',
+  load: 'Charger',
+  newGame: 'Nouvelle partie',
+  quitToMenu: 'Retourner à l\'écran-titre',
+  quitGame: 'Quitter le jeu',
+}
+
+export default systemLocale
