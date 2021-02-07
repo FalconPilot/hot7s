@@ -6,15 +6,45 @@ import { checkExhaustive } from '$game/utils'
 import { GameView } from '$front/types'
 import { MainMenu } from '$front/components'
 
+
+import { systemImage, text } from '$front/utils'
+
+import { SplashScreen } from './splashscreen'
+import { splashScreenFadeDelay } from './styled'
+
+const splashScreenImages = [
+  systemImage('falconpilot.svg'),
+] as const
+
 export const Main: React.FunctionComponent = () => {
+  console.log('RE-RENDER')
+  const [[splashIndex, isFadeout], setSplash] = React.useState<[number, boolean]>([0, false])
   const { gameView } = useSelector(systemSelector)
 
-  // Display correct GameView
-  switch (gameView) {
+  console.log(splashIndex, isFadeout)
 
-    // Main menu
-    case GameView.MainMenu:
-      return <MainMenu />
+  // All splashscreens have been displayed
+  // Display correct GameView
+  if (splashIndex >= splashScreenImages.length) {
+    switch (gameView) {
+
+      // Main menu
+      case GameView.MainMenu:
+        return <MainMenu />
+    }
+    checkExhaustive(gameView)
   }
-  checkExhaustive(gameView)
+
+  if (!isFadeout) {
+    window.setTimeout(() => {
+      setSplash([splashIndex, true])
+      window.setTimeout(() => {
+        setSplash([splashIndex + 1, false])
+      }, splashScreenFadeDelay + 100)
+    }, 2000)
+  }
+
+  return (
+    <SplashScreen image={splashScreenImages[splashIndex]} isFadeout={isFadeout} />
+  )
 }

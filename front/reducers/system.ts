@@ -1,10 +1,14 @@
 import { GameOverlay, GameView, SystemAction, SystemActionKey, SystemState } from '$front/types'
 import { isSystemAction, reducer } from '$front/utils'
-import { checkExhaustive } from '$game/utils'
+import { AppOptions } from '$game/types'
+import { checkExhaustive, loadConf } from '$game/utils'
+
+const options: AppOptions = loadConf()
 
 const initialState: SystemState = {
   gameView: GameView.MainMenu,
   gameOverlays: [],
+  options,
 }
 
 const setGameView = (gameView: GameView) => (state: SystemState): SystemState => ({
@@ -22,6 +26,11 @@ const removeOverlay = (state: SystemState): SystemState => ({
   gameOverlays: state.gameOverlays.slice(0, -1),
 })
 
+const setOptions = (options: AppOptions) => (state: SystemState): SystemState => ({
+  ...state,
+  options,
+})
+
 export default reducer<SystemState, SystemAction>(
   initialState,
   isSystemAction
@@ -33,6 +42,8 @@ export default reducer<SystemState, SystemAction>(
       return addOverlay(action.payload)(state)
     case SystemActionKey.REMOVE_OVERLAY:
       return removeOverlay(state)
+    case SystemActionKey.SET_OPTIONS:
+      return setOptions(action.payload)(state)
   }
   return checkExhaustive(action)
 })

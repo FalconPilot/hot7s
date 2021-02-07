@@ -8,6 +8,7 @@
     "baseUrl": ".",
     "paths": {
       "$game/constants": ["./game/constants"],
+      "$game/globals": ["./game/globals"],
       "$game/index": ["./game"],
       "$game/ipc": ["./game/ipc"],
       "$game/types": ["./game/types"],
@@ -15,6 +16,7 @@
       "$game/utils/*": ["./game/utils/*"],
       "$front/actions": ["./front/actions"],
       "$front/components": ["./front/components"],
+      "$front/constants": ["./front/constants"],
       "$front/core": ["./front/core"],
       "$front/ipc": ["./front/ipc"],
       "$front/locale": ["./front/locale"],

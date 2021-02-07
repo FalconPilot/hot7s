@@ -6,4 +6,6 @@ export interface SystemLocale {
   options: string
   quitToMenu: string
   quitGame: string
+  confirm: string
+  resolution: string
 }

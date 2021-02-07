@@ -1,5 +1,5 @@
-import locales from '$front/locale'
+import { AppOptions } from '$game/types'
 
 export interface GameWindow extends Window {
-  locale: keyof typeof locales
+  options: AppOptions
 }

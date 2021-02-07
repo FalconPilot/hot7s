@@ -10,6 +10,8 @@ const systemLocale: SystemLocale = {
   newGame: 'Nouvelle partie',
   quitToMenu: 'Retourner à l\'écran-titre',
   quitGame: 'Quitter le jeu',
+  confirm: 'Confirmer',
+  resolution: 'Résolution',
 }
 
 export default systemLocale

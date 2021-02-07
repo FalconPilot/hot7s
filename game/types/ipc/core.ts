@@ -1,4 +1,6 @@
-import { IpcSystemAction, IpcSystemMessages } from "./system"
+import { GameWindows } from '../core'
+
+import { IpcSystemAction, IpcSystemMessages } from './system'
 
 export interface IpcErrorPayload {
   message: string
@@ -28,7 +30,7 @@ export type IpcAction<Message extends IpcMessages, Payload = null, Response = nu
 
 export type IpcActions = IpcSystemAction
 
-export type IpcResponseHandler = () => void
+export type IpcResponseHandler = (windows: GameWindows) => void
 
 // IPC Error class
 export class IpcError<ExpectedSuccess> extends Error {
