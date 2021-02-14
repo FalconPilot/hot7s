@@ -5,10 +5,10 @@
   "author": "FalconPilot",
   "repository": "https://github.com/FalconPilot/hot7s",
   "scripts": {
-    "clean": "rm -rf dist/",
+    "clean": "shx rm -rf dist/",
     "all": "yarn run build && yarn start",
     "build": "yarn run clean && yarn run build:ts",
-    "build:static": "cp -r game/static dist/game/static",
+    "build:static": "shx cp -r game/static dist/game/static",
     "build:ts": "tsc --project tsconfig.json && yarn run paths && yarn run build:static",
     "paths": "yarn run paths:game && yarn run paths:front && yarn run paths:editor",
     "paths:editor": "tscpaths -p tsconfig.json -s ./editor -o ./dist/editor",
@@ -35,6 +35,7 @@
     "@types/react-redux": "^7.1.16",
     "electron": "^11.2.1",
     "prettier": "^2.2.1",
+    "shx": "^0.3.3",
     "tscpaths": "^0.0.9",
     "typescript": "^4.1.3"
   }
