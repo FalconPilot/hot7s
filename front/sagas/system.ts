@@ -1,20 +1,20 @@
+import { quitGame, saveOptions } from '$front/ipc'
 import { SystemActionKey } from '$front/types'
-import { noOp, sendMessage, systemSelector } from '$front/utils'
-import { IpcSystemMessages, QuitGame, SaveOptions } from '$game/types'
+import { systemSelector } from '$front/utils'
 import { ForkEffect, select, takeLatest } from 'redux-saga/effects'
 
-function * saveOptions () {
+function * saveOptionsEffect () {
   const { options } = yield select(systemSelector)
-  yield sendMessage<SaveOptions>(IpcSystemMessages.SAVE_OPTIONS)(options)(noOp)
+  yield saveOptions(options)
 }
 
-function * quitGame () {
-  yield sendMessage<QuitGame>(IpcSystemMessages.GAME_QUIT)(null)(noOp)
+function * quitGameEffect () {
+  yield quitGame()
 }
 
 const systemSagas: Array<ForkEffect<never>> = [
-  takeLatest(SystemActionKey.SAVE_OPTIONS, saveOptions),
-  takeLatest(SystemActionKey.GAME_QUIT, quitGame),
+  takeLatest(SystemActionKey.SAVE_OPTIONS, saveOptionsEffect),
+  takeLatest(SystemActionKey.GAME_QUIT, quitGameEffect),
 ]
 
 export default systemSagas

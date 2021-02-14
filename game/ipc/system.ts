@@ -9,6 +9,9 @@ const crashGame = handleBlankMessage<CrashGame>(IpcSystemMessages.GAME_CRASH)(()
 
 const saveOptions = handleMessage<SaveOptions>(IpcSystemMessages.SAVE_OPTIONS)((app, windows) => options => {
   if (windows.main) {
+    // We need to call setMinimumSize before setSize
+    // for windows
+    windows.main.setMinimumSize(options.resolution.windowWidth, options.resolution.windowHeight)
     windows.main.setSize(options.resolution.windowWidth, options.resolution.windowHeight)
   }
   writeConf(app)(options)

@@ -1,8 +1,11 @@
 import { noOp, sendMessage } from '$front/utils'
-import { AppOptions, CrashGame, IpcSystemMessages, SaveOptions } from '$game/types'
+import { AppOptions, CrashGame, IpcSystemMessages, QuitGame, SaveOptions } from '$game/types'
 
 export const saveOptions = (options: AppOptions): Promise<void> =>
   sendMessage<SaveOptions>(IpcSystemMessages.SAVE_OPTIONS)(options)(noOp)
+
+export const quitGame = (): Promise<void> =>
+  sendMessage<QuitGame>(IpcSystemMessages.GAME_QUIT)(null)(noOp)
 
 export const crashGame = (reason: string): Promise<void> => {
   const msg: string = `FATAL ERROR : ${reason}`
