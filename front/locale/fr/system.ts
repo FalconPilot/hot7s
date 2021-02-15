@@ -8,7 +8,7 @@ const systemLocale: SystemLocale = {
   load: 'Charger',
   options: 'Options',
   newGame: 'Nouvelle partie',
-  quitToMenu: 'Retourner à l\'écran-titre',
+  quitToMenu: "Retourner à l'écran-titre",
   quitGame: 'Quitter le jeu',
   confirm: 'Confirmer',
   resolution: 'Résolution',

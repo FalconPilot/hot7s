@@ -19,10 +19,10 @@ export enum SystemActionKey {
 }
 
 export type SystemActionCreator<AK extends SystemActionKey> = ActionCreator<AK>
-export type SystemActionCreatorWithPayload<AK extends SystemActionKey, Payload> = ActionCreatorWithPayload<
-  AK,
+export type SystemActionCreatorWithPayload<
+  AK extends SystemActionKey,
   Payload
->
+> = ActionCreatorWithPayload<AK, Payload>
 
 export interface SystemActions {
   changeGameView: SystemActionCreatorWithPayload<SystemActionKey.CHANGE_GAMEVIEW, GameView>

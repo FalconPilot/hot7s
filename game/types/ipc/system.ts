@@ -13,8 +13,4 @@ export type QuitGame = IpcAction<IpcSystemMessages.GAME_QUIT>
 export type SaveGame = IpcAction<IpcSystemMessages.GAME_SAVE>
 export type SaveOptions = IpcAction<IpcSystemMessages.SAVE_OPTIONS, AppOptions>
 
-export type IpcSystemAction =
-  | CrashGame
-  | QuitGame
-  | SaveGame
-  | SaveOptions
+export type IpcSystemAction = CrashGame | QuitGame | SaveGame | SaveOptions

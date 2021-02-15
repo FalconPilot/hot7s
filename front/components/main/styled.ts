@@ -1,7 +1,15 @@
 import { keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 
-import { backgroundColor, flexbox, height, maxHeight, maxWidth, percent, width } from '@figouzes/falcon-css'
+import {
+  backgroundColor,
+  flexbox,
+  height,
+  maxHeight,
+  maxWidth,
+  percent,
+  width,
+} from '@figouzes/falcon-css'
 
 export const splashScreenFadeDelay = 400
 
@@ -19,7 +27,7 @@ export const SplashScreenWrapper = styled.div<{ isFadeout: boolean }>`
   ${flexbox(['column', 'center', 'center'])}
   ${backgroundColor([33, 33, 33])}
   transition: ${splashScreenFadeDelay}ms;
-  opacity: ${props => props.isFadeout ? 0 : 1};
+  opacity: ${(props) => (props.isFadeout ? 0 : 1)};
   animation: ${fadeIn} ${splashScreenFadeDelay}ms linear 1;
 `
 

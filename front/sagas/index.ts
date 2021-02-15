@@ -6,6 +6,4 @@ export function* combineSagas(sagas: Array<ForkEffect<never>>): Generator {
   yield all(sagas)
 }
 
-export const sagas: Array<ForkEffect<never>> = [
-  ...system,
-]
+export const sagas: Array<ForkEffect<never>> = [...system]

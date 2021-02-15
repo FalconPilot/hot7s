@@ -22,6 +22,7 @@
       "$front/sagas": ["./front/sagas"],
       "$front/theme": ["./front/theme"],
       "$front/types": ["./front/types"],
+      "$front/ui": ["./front/ui"],
       "$front/utils": ["./front/utils"]
     }
   },

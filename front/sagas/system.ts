@@ -3,12 +3,12 @@ import { SystemActionKey } from '$front/types'
 import { systemSelector } from '$front/utils'
 import { ForkEffect, select, takeLatest } from 'redux-saga/effects'
 
-function * saveOptionsEffect () {
+function* saveOptionsEffect() {
   const { options } = yield select(systemSelector)
   yield saveOptions(options)
 }
 
-function * quitGameEffect () {
+function* quitGameEffect() {
   yield quitGame()
 }
 
