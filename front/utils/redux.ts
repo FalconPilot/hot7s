@@ -1,4 +1,4 @@
-import { GameAction } from '$front/types'
+import { AppAction } from '$front/types'
 
 type ComposerFunction<State> = (state: State) => State
 
@@ -8,12 +8,12 @@ export const composeStateChanges = <State>(
 ): ComposerFunction<State> => (state: State): State =>
   funcs.reduce((currentState, func) => func(currentState), state)
 
-export const reducer = <State, ActionType extends GameAction>(
+export const reducer = <State, ActionType extends AppAction>(
   initialState: State,
-  typeguard: (action: GameAction) => action is ActionType
+  typeguard: (action: AppAction) => action is ActionType
 ) => (switchFunction: (state: State, action: ActionType) => State) => (
   state: State = initialState,
-  action: GameAction = { type: 'NOOP' }
+  action: AppAction = { type: 'NOOP' }
 ): State => {
   if (typeguard(action)) {
     return switchFunction(state, action)

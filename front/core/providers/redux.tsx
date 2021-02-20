@@ -3,7 +3,7 @@ import createSagaMiddleware, { SagaMiddleware } from 'redux-saga'
 import { Provider } from 'react-redux'
 import { applyMiddleware, combineReducers, compose, createStore, Middleware, Store } from 'redux'
 
-import { GameAction, GameState } from '$front/types'
+import { AppAction, AppState } from '$front/types'
 import { reducers } from '$front/reducers'
 import { combineSagas, sagas } from '$front/sagas'
 
@@ -15,7 +15,7 @@ const middlewares: Middleware[] = [
 ]
 
 // Create store
-const store: Store<GameState, GameAction> = createStore(
+const store: Store<AppState, AppAction> = createStore(
   combineReducers(reducers),
   compose(applyMiddleware(...middlewares)),
 )

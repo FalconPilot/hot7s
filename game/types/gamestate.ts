@@ -1,3 +1,9 @@
+export enum GameMap {
+  GAMESTART = 'GAMESTART',
+}
+
 export interface GameState {
-  gameVars: { [k: string]: boolean }
+  gameVars: {
+    currentMapId: GameMap
+  }
 }

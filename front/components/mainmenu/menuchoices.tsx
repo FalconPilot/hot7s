@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { systemSelector, text } from '$front/utils'
 import { actions } from '$front/actions'
-import { GameAction, GameOverlay } from '$front/types'
+import { AppAction, GameOverlay } from '$front/types'
 
 interface MenuChoiceProps {
   onClick?: () => void
@@ -17,7 +17,7 @@ const MenuChoice: React.FunctionComponent<MenuChoiceProps> = ({ children, onClic
 )
 
 export const MenuChoices: React.FunctionComponent = () => {
-  const dispatch: Dispatch<GameAction> = useDispatch()
+  const dispatch: Dispatch<AppAction> = useDispatch()
   const { options } = useSelector(systemSelector)
 
   const openOptions = React.useCallback((): void => {

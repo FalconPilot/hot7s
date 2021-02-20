@@ -7,7 +7,7 @@ import { GameView } from '$front/types'
 import { MainMenu } from '$front/components'
 
 
-import { systemImage, text } from '$front/utils'
+import { systemImage } from '$front/utils'
 
 import { SplashScreen } from './splashscreen'
 import { splashScreenFadeDelay } from './styled'
@@ -28,6 +28,10 @@ export const Main: React.FunctionComponent = () => {
       // Main menu
       case GameView.MainMenu:
         return <MainMenu />
+      
+      // Illustrated scene
+      case GameView.IllustratedScene:
+        return null
     }
     checkExhaustive(gameView)
   }

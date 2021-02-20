@@ -1,8 +1,8 @@
-import { GameActionKey } from '$front/types'
+import { AppActionKey } from '$front/types'
 
-export const actionCreator = <K extends GameActionKey>(type: K) => () => ({ type })
+export const actionCreator = <K extends AppActionKey>(type: K) => () => ({ type })
 
-export const actionWithPayloadCreator = <K extends GameActionKey>(type: K) => <Payload>(
+export const actionWithPayloadCreator = <K extends AppActionKey>(type: K) => <Payload>(
   payload: Payload
 ) => ({
   type,

@@ -3,7 +3,7 @@ import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 
 import locales, { languageNames } from '$front/locale'
-import { GameAction } from '$front/types'
+import { AppAction } from '$front/types'
 import { actions } from '$front/actions'
 import { gameResolutions } from '$front/constants'
 import { systemSelector, text } from '$front/utils'
@@ -17,7 +17,7 @@ const resolutionText = (resolution: ResolutionOptions): string => (
 
 export const OptionsOverlay: React.FunctionComponent = () => {
   const [hasChanged, setChange] = React.useState<boolean>(false)
-  const dispatch: Dispatch<GameAction> = useDispatch()
+  const dispatch: Dispatch<AppAction> = useDispatch()
   const { options } = useSelector(systemSelector)
 
   const closeOptions = React.useCallback((): void => {

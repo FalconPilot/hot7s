@@ -1,11 +1,12 @@
 import locales from '$front/locale'
-import { GameAction, SystemAction, SystemActionKey } from '$front/types'
+import { AppAction, GuiAction, GuiActionKey, SystemAction, SystemActionKey } from '$front/types'
 
 export const isLocaleKey = (key: string): key is keyof typeof locales =>
   Object.keys(locales).includes(key)
 
-const isAction = <ActionType extends GameAction>(keys: string[]) => (
-  action: GameAction
+const isAction = <ActionType extends AppAction>(keys: string[]) => (
+  action: AppAction
 ): action is ActionType => keys.includes(action.type)
 
+export const isGuiAction = isAction<GuiAction>(Object.values<string>(GuiActionKey))
 export const isSystemAction = isAction<SystemAction>(Object.values<string>(SystemActionKey))

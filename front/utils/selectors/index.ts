@@ -1,3 +1,4 @@
-import { GameState, SystemState } from '$front/types'
+import { AppState, GuiState, SystemState } from '$front/types'
 
-export const systemSelector = (state: GameState): SystemState => state.system
+export const systemSelector = (state: AppState): SystemState => state.system
+export const guiSelector = (state: AppState): GuiState => state.gui

@@ -4,11 +4,13 @@ import { GameOverlay, GameView, SystemAction, SystemActionKey, SystemState } fro
 import { isSystemAction, reducer } from '$front/utils'
 import { AppOptions } from '$game/types'
 import { checkExhaustive } from '$game/utils'
+import { initialGameState } from '$game/constants'
 
 const options: AppOptions = remote.getGlobal('options')
 
 const initialState: SystemState = {
   gameView: GameView.MainMenu,
+  gameState: initialGameState,
   gameOverlays: [],
   options,
 }
@@ -33,6 +35,12 @@ const setOptions = (options: AppOptions) => (state: SystemState): SystemState =>
   options,
 })
 
+const newGame = (state: SystemState): SystemState => ({
+  ...state,
+  gameView: GameView.IllustratedScene,
+  gameState: initialGameState,
+})
+
 export default reducer<SystemState, SystemAction>(
   initialState,
   isSystemAction
@@ -47,6 +55,8 @@ export default reducer<SystemState, SystemAction>(
     case SystemActionKey.SAVE_OPTIONS:
     case SystemActionKey.UPDATE_OPTIONS:
       return setOptions(action.payload)(state)
+    case SystemActionKey.NEW_GAME:
+      return newGame(state)
 
     // NoOps
     case SystemActionKey.GAME_QUIT:

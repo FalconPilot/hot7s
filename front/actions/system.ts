@@ -8,6 +8,7 @@ const systemActionWithPayloadCreator = <K extends SystemActionKey>(type: K) =>
 
 export const systemActions: SystemActions = {
   changeGameView: systemActionWithPayloadCreator(SystemActionKey.CHANGE_GAMEVIEW),
+  newGame: systemActionCreator(SystemActionKey.NEW_GAME),
   quitGame: systemActionCreator(SystemActionKey.GAME_QUIT),
 
   // Overlays
