@@ -4,9 +4,7 @@ import { useSelector } from 'react-redux'
 import { systemSelector } from '$front/utils'
 import { checkExhaustive } from '$game/utils'
 import { GameView } from '$front/types'
-import { MainMenu } from '$front/components'
-
-
+import { IllustratedScene, MainMenu } from '$front/components'
 import { systemImage } from '$front/utils'
 
 import { SplashScreen } from './splashscreen'
@@ -31,7 +29,7 @@ export const Main: React.FunctionComponent = () => {
       
       // Illustrated scene
       case GameView.IllustratedScene:
-        return null
+        return <IllustratedScene />
     }
     checkExhaustive(gameView)
   }

@@ -40,9 +40,9 @@ export default reducer<GuiState, GuiAction>(
 )((state, action) => {
   switch (action.type) {
     case GuiActionKey.FADEIN:
-      return composeStateChanges([hideVeil, setVeilTransitionTime(action.payload)])(state)
-    case GuiActionKey.FADEOUT:
       return composeStateChanges([showVeil, setVeilTransitionTime(action.payload)])(state)
+    case GuiActionKey.FADEOUT:
+      return composeStateChanges([hideVeil, setVeilTransitionTime(action.payload)])(state)
     case GuiActionKey.SET_COLOR:
       return composeStateChanges([
         setVeilColor(action.payload[0]),

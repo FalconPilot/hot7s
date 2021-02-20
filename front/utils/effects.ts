@@ -4,7 +4,7 @@ import { AppAction } from '$front/types'
 import { actions } from '$front/actions'
 import { delayResolve } from './promises'
 
-export const fadeOut = (dispatch: Dispatch<AppAction>) =>
+export const fadeIn = (dispatch: Dispatch<AppAction>) =>
   delayResolve((duration: number): void => {
-    dispatch(actions.gui.fadeOut(duration))
+    dispatch(actions.gui.fadeIn(duration))
   })

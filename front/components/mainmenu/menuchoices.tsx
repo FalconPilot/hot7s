@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { asyncDispatch, fadeOut, systemSelector, text } from '$front/utils'
+import { asyncDispatch, fadeIn, systemSelector, text } from '$front/utils'
 import { actions } from '$front/actions'
 import { AppAction, GameOverlay } from '$front/types'
 
@@ -22,8 +22,10 @@ export const MenuChoices: React.FunctionComponent = () => {
 
   const newGame = React.useCallback((): void => {
     dispatch(actions.gui.blockInteractions())
-    fadeOut(dispatch)(1500)
+    fadeIn(dispatch)(1500)
       .then(asyncDispatch(dispatch)(actions.system.newGame()))
+      .then(asyncDispatch(dispatch)(actions.gui.fadeOut(0)))
+      .then(asyncDispatch(dispatch)(actions.gui.unblockInteractions()))
   }, [dispatch])
 
   const openOptions = React.useCallback((): void => {
