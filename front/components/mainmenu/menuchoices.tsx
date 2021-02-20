@@ -21,6 +21,7 @@ export const MenuChoices: React.FunctionComponent = () => {
   const { options } = useSelector(systemSelector)
 
   const newGame = React.useCallback((): void => {
+    dispatch(actions.gui.blockInteractions())
     fadeOut(dispatch)(1500)
       .then(asyncDispatch(dispatch)(actions.system.newGame()))
   }, [dispatch])

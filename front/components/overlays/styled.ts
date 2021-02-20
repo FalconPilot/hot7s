@@ -1,3 +1,4 @@
+import { theme } from '$front/constants'
 import styled from '@emotion/styled'
 import {
   backgroundColor,
@@ -16,6 +17,6 @@ export const OverlayWrapper = styled.div`
   ${left(px(0))}
   ${right(px(0))}
   ${bottom(px(0))}
-  ${zIndex(99)}
+  ${zIndex(theme.zIndices.overlay)}
   ${backgroundColor([10, 10, 10])}
 `

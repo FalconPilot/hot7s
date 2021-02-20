@@ -3,5 +3,6 @@ export interface Theme {
     gameBackground: number
     veil: number
     overlay: number
+    interactor: number
   }
 }

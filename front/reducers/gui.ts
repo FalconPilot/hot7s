@@ -1,11 +1,13 @@
+import { RGBA } from '@figouzes/falcon-css'
+
 import { GuiAction, GuiActionKey, GuiState } from '$front/types'
 import { composeStateChanges, isGuiAction, reducer } from '$front/utils'
 import { checkExhaustive } from '$game/utils'
-import { RGBA } from '@figouzes/falcon-css'
 
 const initialState: GuiState = {
   veilColor: [0, 0, 0, 0],
   veilTransitionTime: 0,
+  blockInteractions: false,
 }
 
 const setVeilColor = (color: RGBA) => (state: GuiState): GuiState => ({
@@ -24,6 +26,14 @@ const setVeilTransitionTime = (time: number) => (state: GuiState): GuiState => (
   veilTransitionTime: time,
 })
 
+const setInteractionsBlocking = (status: boolean) => (state: GuiState): GuiState => ({
+  ...state,
+  blockInteractions: status,
+})
+
+const blockInteractions = setInteractionsBlocking(true)
+const unblockInteractions = setInteractionsBlocking(false)
+
 export default reducer<GuiState, GuiAction>(
   initialState,
   isGuiAction
@@ -38,6 +48,10 @@ export default reducer<GuiState, GuiAction>(
         setVeilColor(action.payload[0]),
         setVeilTransitionTime(action.payload[1]),
       ])(state)
+    case GuiActionKey.BLOCK_INTERACTIONS:
+      return blockInteractions(state)
+    case GuiActionKey.UNBLOCK_INTERACTIONS:
+      return unblockInteractions(state)
   }
   return checkExhaustive(action)
 })

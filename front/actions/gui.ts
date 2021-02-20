@@ -9,5 +9,7 @@ const guiActionWithPayloadCreator = <K extends GuiActionKey>(type: K) =>
 export const guiActions: GuiActions = {
   fadeOut: guiActionWithPayloadCreator(GuiActionKey.FADEOUT),
   fadeIn: guiActionWithPayloadCreator(GuiActionKey.FADEIN),
+  blockInteractions: guiActionCreator(GuiActionKey.BLOCK_INTERACTIONS),
+  unblockInteractions: guiActionCreator(GuiActionKey.UNBLOCK_INTERACTIONS),
   setColor: guiActionWithPayloadCreator(GuiActionKey.SET_COLOR),
 }
