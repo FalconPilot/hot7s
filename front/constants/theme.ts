@@ -5,5 +5,5 @@ export const theme: Theme = {
     gameBackground: 1,
     veil: 70,
     overlay: 90,
-  }
+  },
 }

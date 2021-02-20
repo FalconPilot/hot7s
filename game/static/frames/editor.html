@@ -5,6 +5,14 @@
     <title>House of the 7th Star - Editor</title>
   </head>
   <body>
-    <div id="editor-main"></div>
+    <div id="rootNode"></div>
+    <script>
+      try {
+        require("../../../editor-front/index.js")
+      } catch (err) {
+        console.error(err)
+        alert("An absolutely unexpected error has occured :( You can only quit the game right now... Sorry !")
+      }
+    </script>
   </body>
 </html>

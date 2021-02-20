@@ -7,13 +7,11 @@
   "scripts": {
     "clean": "shx rm -rf dist/",
     "all": "yarn run build && yarn start",
+    "all:editor": "yarn run build && yarn start:editor",
     "build": "yarn run clean && yarn run build:ts",
     "build:static": "shx cp -r game/static dist/game/static",
     "build:ts": "tsc --project tsconfig.json && yarn run paths && yarn run build:static",
-    "paths": "yarn run paths:game && yarn run paths:front && yarn run paths:editor",
-    "paths:editor": "tscpaths -p tsconfig.json -s ./editor -o ./dist/editor",
-    "paths:front": "tscpaths -p tsconfig.json -s ./front -o ./dist/front",
-    "paths:game": "tscpaths -p tsconfig.json -s ./game -o ./dist/game",
+    "paths": "tscpaths -p tsconfig.json -s . -o ./dist",
     "pretty": "prettier --write ./game/**/*.ts && prettier --write ./editor/**/*.ts && prettier --write ./front/**/*.ts",
     "start": "electron dist/game/index.js",
     "start:editor": "electron dist/editor/index.js"

@@ -1,7 +1,7 @@
-import { GameMap, GameState } from "$game/types";
+import { GameMap, GameState } from '$game/types'
 
 export const initialGameState: GameState = {
   gameVars: {
-    currentMapId: GameMap.GAMESTART
-  }
+    currentMapId: GameMap.GAMESTART,
+  },
 }

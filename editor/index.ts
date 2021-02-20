@@ -1,3 +1,4 @@
+import path from 'path'
 import { app, BrowserWindow } from 'electron'
 
 import { loadFrame } from '$game/utils'
@@ -14,11 +15,14 @@ app.whenReady().then(() => {
   const mainWindow: BrowserWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    frame: true,
+    resizable: true,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
     },
   })
 
-  loadFrame(__dirname)('editor')(mainWindow)
+  loadFrame(path.resolve(__dirname, '..', 'game'))('editor')(mainWindow)
 })

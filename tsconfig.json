@@ -8,6 +8,7 @@
     "baseUrl": ".",
     "paths": {
       "$game/constants": ["./game/constants"],
+      "$game/contents": ["./game/contents"],
       "$game/ipc": ["./game/ipc"],
       "$game/types": ["./game/types"],
       "$game/utils": ["./game/utils"],
@@ -23,12 +24,14 @@
       "$front/theme": ["./front/theme"],
       "$front/types": ["./front/types"],
       "$front/ui": ["./front/ui"],
-      "$front/utils": ["./front/utils"]
+      "$front/utils": ["./front/utils"],
+      "$editor/front/components": ["./editor-front/components"]
     }
   },
   "include": [
     "game/**/*",
     "editor/**/*",
+    "editor-front/**/*",
     "front/**/*"
   ]
 }

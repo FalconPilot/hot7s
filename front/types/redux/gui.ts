@@ -24,6 +24,6 @@ export interface GuiActions {
 export type GuiAction = ReturnType<ValueOf<GuiActions>>
 
 export interface GuiState {
-  veilColor: RGBA,
-  veilTransitionTime: number,
+  veilColor: RGBA
+  veilTransitionTime: number
 }

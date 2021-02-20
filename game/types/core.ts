@@ -8,6 +8,10 @@ export interface GameGlobals {
   options: AppOptions
 }
 
+export enum GameContentType {
+  Dialog = 'dialogs',
+}
+
 export interface GameWindows {
   main: BrowserWindow | null
   debug: BrowserWindow | null

@@ -6,9 +6,7 @@ export enum GameView {
   IllustratedScene = 'IllustratedScene',
 }
 
-export type GameViewPayload =
-  | GameView.MainMenu
-  | [GameView.IllustratedScene, string]
+export type GameViewPayload = GameView.MainMenu | [GameView.IllustratedScene, string]
 
 export enum GameOverlay {
   Options = 'Options',
