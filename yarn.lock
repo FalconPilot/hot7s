@@ -176,10 +176,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@figouzes/falcon-css@^0.3.12":
-  version "0.3.12"
-  resolved "https://registry.yarnpkg.com/@figouzes/falcon-css/-/falcon-css-0.3.12.tgz#ba75b5a7ff9d2363fdb7665548b47c5fa9b0a356"
-  integrity sha512-KKuj/8EVHVqP6bR7TfBQn2mTCsOFLTy932cZpqXgrfK11FDbbZUQO/BUZfjNUAbUpEDQ/na2XYmgfGJhzmNJbg==
+"@figouzes/falcon-css@^0.3.13":
+  version "0.3.13"
+  resolved "https://registry.yarnpkg.com/@figouzes/falcon-css/-/falcon-css-0.3.13.tgz#0eda1076da1d906d8c23b88b4645d6df8a1abb04"
+  integrity sha512-ju9rEE7BXfr8xbo42dnBM7yoPcnmBhGld16PF0iWsiQgjKfxKny4iXhqaucTcTjHcetjpxyuxVwtF3yWw11eUw==
   dependencies:
     csstype "^3.0.5"
 

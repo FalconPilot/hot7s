@@ -19,6 +19,7 @@ const veilCreator = (
   ${bottom(px(0))}
   ${backgroundColor(color)}
   ${zIndex(theme.zIndices.veil)}
+  pointer-events: none;
   transition: ${transitionTime}ms;
 `
 
